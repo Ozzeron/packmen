@@ -16,8 +16,8 @@ addEventListener('keydown', (e) => {
     Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
 });
 
-function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox) {
-    switch (curPos) {
+function Move(direction, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox) {
+    switch (currentPacmanPosition) {
         case '1': {
             if (direction === 'ArrowRight') {
                 removeUpdate(currentPacmanBox, fullContainer, 1, "right", currentApplePosition, currentAppleBox);
