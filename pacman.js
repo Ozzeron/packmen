@@ -13,27 +13,10 @@ addEventListener('keydown', (e) => {
     let currentPacmanBox = document.getElementById('pacman');
     let currentAppleBox = document.getElementById('apple');
     let fullContainer = document.getElementsByClassName('container')[0];
-    switch (e.key) {
-        case 'ArrowLeft':
-            currentPacmanBox.firstChild.src = imagesPath.left;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
-            break;
-        case 'ArrowUp':
-            currentPacmanBox.firstChild.src = imagesPath.up;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
-            break;
-        case 'ArrowRight':
-            currentPacmanBox.firstChild.src = imagesPath.right;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
-            break;
-        case 'ArrowDown':
-            currentPacmanBox.firstChild.src = imagesPath.down;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
-            break;
-    }
+    Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
 });
 
-function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePosition ,currentAppleBox) {
+function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox) {
     switch (curPos) {
         case '1': {
             if (direction === 'ArrowRight') {
@@ -93,7 +76,7 @@ function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePo
             }
         }
             break;
-        case '7':{
+        case '7': {
             if (direction === 'ArrowRight') {
                 removeUpdate(currentPacmanBox, fullContainer, 7, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowUp') {
@@ -101,7 +84,7 @@ function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePo
             }
         }
             break;
-        case '8':{
+        case '8': {
             if (direction === 'ArrowLeft') {
                 removeUpdate(currentPacmanBox, fullContainer, 6, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowRight') {
@@ -111,7 +94,7 @@ function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePo
             }
         }
             break;
-        case '9':{
+        case '9': {
             if (direction === 'ArrowLeft') {
                 removeUpdate(currentPacmanBox, fullContainer, 7, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowUp') {
@@ -127,11 +110,11 @@ function removeUpdate(currentPacmanBox, fullContainer, boxNum, direction, curren
     currentPacmanBox.id = '';
     fullContainer.children[boxNum].children[0].src = imagesPath[direction];
     fullContainer.children[boxNum].id = 'pacman'
-    if (+currentApplePosition === boxNum+1 || currentAppleBox === null){
-        let randBox = getRandomInt(0,8);
-        let selectedBox = Array.from(fullContainer.children).filter(n=>n.id!=='pacman')[randBox];
-        selectedBox.children[0].src='assets/apple.png';
-        selectedBox.id='apple';
+    if (+currentApplePosition === boxNum + 1 || currentAppleBox === null) {
+        let randBox = getRandomInt(0, 8);
+        let selectedBox = Array.from(fullContainer.children).filter(n => n.id !== 'pacman')[randBox];
+        selectedBox.children[0].src = 'assets/apple.png';
+        selectedBox.id = 'apple';
         playerPoints++;
         document.getElementById('playerPoints').innerHTML = `Your score: ${playerPoints}`;
     }
