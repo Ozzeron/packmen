@@ -7,7 +7,7 @@ addEventListener('keydown', (e) => {
     console.log(currentAppleBox);
     switch (e.key) {
         case 'ArrowLeft':
-            currentPackmenBox.firstChild.src = 'assets/pac_left.jpg';
+            currentPackmenBox.firstChild.src = 'assets/pac_left.png';
             break;
         case 'ArrowUp':
             currentPackmenBox.firstChild.src = 'assets/pac_up.png';
