@@ -1,0 +1,17 @@
+img{
+    padding: 15%
+}
+.container {
+    display: flex;
+    width: 300px;
+    flex-flow: row wrap;
+    margin: auto;
+    padding-top: 300px
+}
+.flex-box {
+    border: solid black;
+    border-width: 1px;
+    flex: 0 1 auto;
+    height: 98px;
+    width: 98px;
+}
