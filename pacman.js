@@ -5,130 +5,138 @@ const imagesPath = {
     'down': 'assets/pac_down.png'
 };
 
+let playerPoints = 0;
 
 addEventListener('keydown', (e) => {
     let currentPacmanPosition = document.getElementById('pacman').attributes.position.value;
-    let currentApplePosition = document.getElementById('apple');
+    let currentApplePosition = document.getElementById('apple').attributes.position.value;
     let currentPacmanBox = document.getElementById('pacman');
     let currentAppleBox = document.getElementById('apple');
     let fullContainer = document.getElementsByClassName('container')[0];
     switch (e.key) {
         case 'ArrowLeft':
             currentPacmanBox.firstChild.src = imagesPath.left;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, imagesPath);
-            console.log(e.key);
+            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
             break;
         case 'ArrowUp':
             currentPacmanBox.firstChild.src = imagesPath.up;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, imagesPath);
-            console.log(e.key);
+            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
             break;
         case 'ArrowRight':
             currentPacmanBox.firstChild.src = imagesPath.right;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, imagesPath);
+            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
             break;
         case 'ArrowDown':
             currentPacmanBox.firstChild.src = imagesPath.down;
-            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, imagesPath);
-            console.log(e.key);
+            Move(e.key, currentPacmanPosition, currentPacmanBox, fullContainer, currentApplePosition, currentAppleBox);
             break;
     }
 });
 
-function Move(direction, curPos, currentPacmanBox, fullContainer, imagesPath) {
-    console.log(direction, curPos);
+function Move(direction, curPos, currentPacmanBox, fullContainer, currentApplePosition ,currentAppleBox) {
     switch (curPos) {
         case '1': {
             if (direction === 'ArrowRight') {
-                removeUpdate(currentPacmanBox, fullContainer, 1, "right");
+                removeUpdate(currentPacmanBox, fullContainer, 1, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowDown') {
-                removeUpdate(currentPacmanBox, fullContainer, 3, "down");
+                removeUpdate(currentPacmanBox, fullContainer, 3, "down", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '2': {
             if (direction === 'ArrowLeft') {
-                removeUpdate(currentPacmanBox, fullContainer, 0, "left");
+                removeUpdate(currentPacmanBox, fullContainer, 0, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowRight') {
-                removeUpdate(currentPacmanBox, fullContainer, 2, "right");
+                removeUpdate(currentPacmanBox, fullContainer, 2, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowDown') {
-                removeUpdate(currentPacmanBox, fullContainer, 4, "down");
+                removeUpdate(currentPacmanBox, fullContainer, 4, "down", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '3': {
             if (direction === 'ArrowLeft') {
-                removeUpdate(currentPacmanBox, fullContainer, 1, "left");
+                removeUpdate(currentPacmanBox, fullContainer, 1, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowDown') {
-                removeUpdate(currentPacmanBox, fullContainer, 5, "down");
+                removeUpdate(currentPacmanBox, fullContainer, 5, "down", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '4': {
             if (direction === 'ArrowUp') {
-                removeUpdate(currentPacmanBox, fullContainer, 0, "up");
+                removeUpdate(currentPacmanBox, fullContainer, 0, "up", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowRight') {
-                removeUpdate(currentPacmanBox, fullContainer, 4, "right");
+                removeUpdate(currentPacmanBox, fullContainer, 4, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowDown') {
-                removeUpdate(currentPacmanBox, fullContainer, 6, "down");
+                removeUpdate(currentPacmanBox, fullContainer, 6, "down", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '5': {
             if (direction === 'ArrowUp') {
-                removeUpdate(currentPacmanBox, fullContainer, 1, "up");
+                removeUpdate(currentPacmanBox, fullContainer, 1, "up", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowRight') {
-                removeUpdate(currentPacmanBox, fullContainer, 5, "right");
+                removeUpdate(currentPacmanBox, fullContainer, 5, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowDown') {
-                removeUpdate(currentPacmanBox, fullContainer, 7, "down");
+                removeUpdate(currentPacmanBox, fullContainer, 7, "down", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowLeft') {
-                removeUpdate(currentPacmanBox, fullContainer, 3, "left");
+                removeUpdate(currentPacmanBox, fullContainer, 3, "left", currentApplePosition, currentAppleBox);
             }
             break;
         }
         case '6': {
             if (direction === 'ArrowLeft') {
-                removeUpdate(currentPacmanBox, fullContainer, 4, "left");
+                removeUpdate(currentPacmanBox, fullContainer, 4, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowUp') {
-                removeUpdate(currentPacmanBox, fullContainer, 2, "up");
+                removeUpdate(currentPacmanBox, fullContainer, 2, "up", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowDown') {
-                removeUpdate(currentPacmanBox, fullContainer, 8, "down");
+                removeUpdate(currentPacmanBox, fullContainer, 8, "down", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '7':{
             if (direction === 'ArrowRight') {
-                removeUpdate(currentPacmanBox, fullContainer, 7, "right");
+                removeUpdate(currentPacmanBox, fullContainer, 7, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowUp') {
-                removeUpdate(currentPacmanBox, fullContainer, 3, "up");
+                removeUpdate(currentPacmanBox, fullContainer, 3, "up", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '8':{
             if (direction === 'ArrowLeft') {
-                removeUpdate(currentPacmanBox, fullContainer, 6, "left");
+                removeUpdate(currentPacmanBox, fullContainer, 6, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowRight') {
-                removeUpdate(currentPacmanBox, fullContainer, 8, "right");
+                removeUpdate(currentPacmanBox, fullContainer, 8, "right", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowUp') {
-                removeUpdate(currentPacmanBox, fullContainer, 4, "up");
+                removeUpdate(currentPacmanBox, fullContainer, 4, "up", currentApplePosition, currentAppleBox);
             }
         }
             break;
         case '9':{
             if (direction === 'ArrowLeft') {
-                removeUpdate(currentPacmanBox, fullContainer, 7, "left");
+                removeUpdate(currentPacmanBox, fullContainer, 7, "left", currentApplePosition, currentAppleBox);
             } else if (direction === 'ArrowUp') {
-                removeUpdate(currentPacmanBox, fullContainer, 5, "up");
+                removeUpdate(currentPacmanBox, fullContainer, 5, "up", currentApplePosition, currentAppleBox);
             }
         }
             break;
     }
 }
 
-function removeUpdate(currentPacmanBox, fullContainer, boxNum, direction) {
+function removeUpdate(currentPacmanBox, fullContainer, boxNum, direction, currentApplePosition, currentAppleBox) {
     currentPacmanBox.children[0].src = '';
     currentPacmanBox.id = '';
-    console.log(direction);
     fullContainer.children[boxNum].children[0].src = imagesPath[direction];
     fullContainer.children[boxNum].id = 'pacman'
+    if (+currentApplePosition === boxNum+1 || currentAppleBox === null){
+        let randBox = getRandomInt(0,8);
+        let selectedBox = Array.from(fullContainer.children).filter(n=>n.id!=='pacman')[randBox];
+        selectedBox.children[0].src='assets/apple.png';
+        selectedBox.id='apple';
+        playerPoints++;
+        document.getElementById('playerPoints').innerHTML = `Your score: ${playerPoints}`;
+    }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
