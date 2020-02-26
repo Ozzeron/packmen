@@ -5,8 +5,8 @@ img{
     display: flex;
     width: 300px;
     flex-flow: row wrap;
-    margin: auto;
-    padding-top: 300px
+    margin: 300px auto auto;
+    border: solid black 1px;
 }
 .flex-box {
     border: solid black;
